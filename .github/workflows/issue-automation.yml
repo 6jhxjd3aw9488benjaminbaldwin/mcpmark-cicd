@@ -8,9 +8,6 @@ jobs:
   issue-triage:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Triage issue
         uses: actions/github-script@v7
         with:
@@ -71,9 +68,6 @@ jobs:
     needs: issue-triage
     if: contains(github.event.issue.labels.*.name, 'epic')
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Create epic subtasks
         uses: actions/github-script@v7
         with:
@@ -127,9 +121,6 @@ jobs:
     needs: [issue-triage, task-breakdown]
     if: always()
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Auto respond to issue
         uses: actions/github-script@v7
         with:
