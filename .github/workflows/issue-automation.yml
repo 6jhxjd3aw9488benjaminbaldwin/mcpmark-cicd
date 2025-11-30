@@ -59,8 +59,8 @@ jobs:
             // Remove duplicate labels
             labels = [...new Set(labels)];
             
-            // Update issue labels
-            await github.rest.issues.update({
+            // Add labels to issue
+            await github.rest.issues.addLabels({
               owner: context.repo.owner,
               repo: context.repo.repo,
               issue_number: issue.number,
